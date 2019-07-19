@@ -1,3 +1,27 @@
+.messages-wrapper {
+}
+
+
+.messages-header {
+}
+
+.message-rows {
+    overflow-y: scroll;
+    /*max-height: calc(100vh - 50px - 31px);*/
+    max-height: calc(100vh - 68px);
+}
+
+.messages-header,
+.message-row {
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% auto;
+}
+
+.message-row {
+}
+
+
+/*
 .outer{
     overflow-y: auto;
     height:100%;
@@ -6,46 +30,13 @@
 .outer table {
     width: 100%;
     table-layout: fixed;
-    /*border : 1px solid black;*/
     border: none;
-    /*border-spacing: 1px;*/
 }
 
 .outer table th {
     text-align: left;
     top:0;
     position: sticky;
-    /*background-color: white;*/
-
-    border-left: 1px solid #999;
-    border-right: 1px solid #999;
-    padding: 2px 8px;
-    vertical-align: top;
-    background-color: #eee;
-}
-
-
-
-/*.midi-console .content-wrapper {*/
-/*    overflow-y: scroll;*/
-/*    max-height: calc(100vh - 50px - 31px);*/
-/*}*/
-
-/*.midi-console .panel-title button {*/
-/*    margin-left: 20px;*/
-/*}*/
-
-.midi-console.panel-wrapper {
-    border-bottom: none;
-}
-
-.midi-console table {
-    border-collapse: collapse;
-    /*font-size: 14px;*/
-}
-
-/*
-.midi-console th {
     border-left: 1px solid #999;
     border-right: 1px solid #999;
     padding: 2px 8px;
@@ -54,7 +45,17 @@
 }
 */
 
-/*.midi-console th,*/
+
+/*
+.midi-console.panel-wrapper {
+    border-bottom: none;
+}
+
+.midi-console table {
+    border-collapse: collapse;
+    !*font-size: 14px;*!
+}
+
 .midi-console td {
     border: 1px solid #999;
     padding: 2px 8px;
@@ -71,26 +72,7 @@
     font-size: 12px;
     word-spacing: -3px;
 }
-
-.console-positions {
-    flex-grow: 2;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-}
-
-.console-positions > div {
-    cursor: pointer;
-}
-
-.console-positions > div.on svg {
-    fill: #000;
-}
-
-.midi-console .instruction {
-    font-size: 14px;
-    margin: 5px 0;
-}
+*/
 
 span.toggle_full {
     cursor: pointer;

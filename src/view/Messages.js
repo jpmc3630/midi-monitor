@@ -16,6 +16,7 @@ class Messages extends React.Component {
     };
 */
 
+/*
     scrollToBottom = () => {
         // if (this.props.consolePosition === 'bottom') return;
         const t = document.getElementById("mytable");
@@ -23,10 +24,25 @@ class Messages extends React.Component {
         window.scrollTo(0, t.offsetHeight);
         // this.messagesEnd.scrollIntoView();
     };
+*/
 
     // componentDidMount() {
     //     this.scrollToBottom();
     // };
+
+/*
+    componentDidUpdate() {
+        this.scrollToBottom();
+    };
+*/
+    scrollToBottom = () => {
+        if (this.props.consolePosition === 'bottom') return;
+        this.messagesEnd.scrollIntoView();
+    };
+
+    componentDidMount() {
+        this.scrollToBottom();
+    };
 
     componentDidUpdate() {
         this.scrollToBottom();
@@ -45,45 +61,34 @@ class Messages extends React.Component {
         // const cut_len = consolePosition === 'bottom' ? 48 : 12;
 
         return (
-                    <table id="mytable">
-                        <tbody>
-                        <tr>
-                            <th>timestamp</th>
-                            {/*<th>dir.</th>*/}
-                            <th>source</th>
-                            <th>raw data (hex)</th>
-                            <th>raw data (dec)</th>
-                            <th>msg type</th>
-                            <th>ch.</th>
-                            <th>data1</th>
-                            <th>data2</th>
-                        </tr>
-                        {this.props.appState.messages && this.props.appState.messages.map((m, i) =>
-                        <tr key={i}>
-                            <td>{m.timestamp.toFixed(3)}</td>
-                            {/*<td>{m.direction}</td>*/}
-                            <td>{m.source}</td>
-                            <td className="data">{hs(m.data)}</td>
-                            <td className="data">{hs(m.data)}</td>
-                            <td className="data-txt">{m.type}</td>
-                            <td className="data">{m.channel}</td>
-                            <td className="data">{m.data1}</td>
-                            <td className="data">{m.data2}</td>
-                            {/* m.sysex &&
-                            <Fragment>
-                                <td className="data-txt" colSpan={2}>{m.type}</td>
-                                {m.data.length <= cut_len &&
-                                <td className="data" colSpan={3}>{hs(m.data)}</td>
-                                }
-                                {m.data.length > cut_len &&
-                                <td className="data" colSpan={3}>{hs(m.view_full ? m.data : m.data.slice(0, cut_len))} <span className="toggle_full" onClick={() => this.toggleFull(i)}>{m.view_full ? 'less' : 'full'}</span></td>
-                                }
-                            </Fragment>
-                            */}
-                        </tr>
-                        )}
-                        </tbody>
-                    </table>
+            <div className="messages-wrapper">
+                <div className="messages-header">
+                    <div>timestamp</div>
+                    <div>source</div>
+                    <div>raw data (hex)</div>
+                    <div>raw data (dec)</div>
+                    <div>msg type</div>
+                    <div>ch.</div>
+                    <div>data1</div>
+                    <div>data2</div>
+                </div>
+                <div className="message-rows">
+                    {this.props.appState.messages && this.props.appState.messages.map((m, i) =>
+                    <div className="message-row" key={i}>
+                        <div>{m.timestamp.toFixed(3)}</div>
+                        <div>{m.source}</div>
+                        <div className="data">{hs(m.data)}</div>
+                        <div className="data">{hs(m.data)}</div>
+                        <div className="data-txt">{m.type}</div>
+                        <div className="data">{m.channel}</div>
+                        <div className="data">{m.data1}</div>
+                        <div className="data">{m.data2}</div>
+                    </div>
+                    )}
+                    <div style={{ float:"left", clear: "both" }} ref={(el) => { this.messagesEnd = el; }}>
+                    </div>
+                </div>
+            </div>
         );
     }
 }
